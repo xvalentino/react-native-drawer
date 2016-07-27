@@ -528,13 +528,14 @@ export default class Drawer extends Component {
   }
 
   renderDrawer() {
+    const { height } = this.props
     return (
       <View
         {...this.responder.panHandlers}
         key="drawer"
         ref={c => this.drawer = c}
         elevation={this.props.elevation}
-        style={[this.stylesheet.drawer, {height: this.getHeight(), width: this.getDrawerWidth()}]}
+        style={[this.stylesheet.drawer, {height: height || this.getHeight(), width: this.getDrawerWidth()}]}
         >
         {this.props.content}
         <View
